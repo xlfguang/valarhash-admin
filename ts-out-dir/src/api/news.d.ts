@@ -37,4 +37,5 @@ export declare const GET_NEWS_LIST_API: T_GET_NEWS_LIST_API;
 export declare const GET_NEWS_INFO_API: T_GET_NEWS_INFO_API;
 export declare const SEVA_NEWS_INFOL_API: T_SEVA_NEWS_INFOL_API;
 export declare const ADD_NEWS_API: T_ADD_NEWS_API;
+export declare const REMOVE_NEWS_API: (ID: string) => Promise<any>;
 export {};

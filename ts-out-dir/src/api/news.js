@@ -7,4 +7,5 @@ const SEVA_NEWS_INFO_URL = 'admin/news/save';
 export const SEVA_NEWS_INFOL_API = (id, param) => request(`${SEVA_NEWS_INFO_URL}/${id}`, param, { method: 'post' });
 const ADD_NEWS_URL = 'admin/news';
 export const ADD_NEWS_API = (param) => request(`${ADD_NEWS_URL}`, param, { method: 'post' });
+export const REMOVE_NEWS_API = (ID) => request(`${ADD_NEWS_URL}/${ID}`, {}, { method: 'delete' });
 //# sourceMappingURL=news.js.map

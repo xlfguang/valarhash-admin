@@ -27,4 +27,5 @@ declare type T_ADD_BANNER_API = (param: {
 export declare const GET_BANNER_LIST_RUL_API: T_GET_BANNER_LIST_RUL_API;
 export declare const SEVA_BANNER_INFOL_API: T_SEVA_BANNER_INFOL_API;
 export declare const ADD_BANNER_API: T_ADD_BANNER_API;
+export declare const REMOVE_BANNER_API: (ID: string) => Promise<any>;
 export {};
