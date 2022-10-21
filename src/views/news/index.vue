@@ -104,7 +104,6 @@
 <script setup lang="ts">
 import { ADD_NEWS_API, newsItem, GET_NEWS_LIST_API, SEVA_NEWS_INFOL_API, REMOVE_NEWS_API } from '@/api/news'
 import { ElMessageBox } from 'element-plus'
-
 import ImgUpload from '@/components/ImgUpload.vue'
 import Editor from '@/components/Editor.vue'
 

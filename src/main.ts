@@ -46,8 +46,7 @@ import 'uno.css'
 // app.component('ElSvgIcon', ElSvgIcon)
 
 //error log  collection
-import errorLog from '@/hooks/useErrorLog'
-errorLog()
+
 
 //pinia
 import { createPinia } from 'pinia'
