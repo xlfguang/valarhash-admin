@@ -49,3 +49,5 @@ export const SEVA_NEWS_INFOL_API: T_SEVA_NEWS_INFOL_API = (id, param) =>
 
 const ADD_NEWS_URL = 'admin/news'
 export const ADD_NEWS_API: T_ADD_NEWS_API = (param) => request(`${ADD_NEWS_URL}`, param, { method: 'post' })
+
+export const REMOVE_NEWS_API = (ID:string) => request(`${ADD_NEWS_URL}/${ID}`,{},{method:'delete'})

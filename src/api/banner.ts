@@ -38,3 +38,5 @@ export const SEVA_BANNER_INFOL_API: T_SEVA_BANNER_INFOL_API = (id, param) =>
 
 const ADD_BANNER_URL = 'admin/banner'
 export const ADD_BANNER_API: T_ADD_BANNER_API = (param) => request(`${ADD_BANNER_URL}`, param, { method: 'post' })
+
+export const REMOVE_BANNER_API = (ID:string) => request(`${ADD_BANNER_URL}/${ID}`,{},{method:'delete'})

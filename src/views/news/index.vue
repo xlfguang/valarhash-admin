@@ -33,7 +33,7 @@
       <el-table-column label="操作" width="150" align="center">
         <template #default="scope">
           <el-button @click="getBannerInfo(scope)">详情</el-button>
-          <el-button type="danger" @click="reomveBanner(scope.id)">删除</el-button>
+          <el-button type="danger" @click="reomveBanner(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -102,7 +102,7 @@
   </el-dialog>
 </template>
 <script setup lang="ts">
-import { ADD_NEWS_API, newsItem, GET_NEWS_LIST_API, SEVA_NEWS_INFOL_API } from '@/api/news'
+import { ADD_NEWS_API, newsItem, GET_NEWS_LIST_API, SEVA_NEWS_INFOL_API, REMOVE_NEWS_API } from '@/api/news'
 import { ElMessageBox } from 'element-plus'
 
 import ImgUpload from '@/components/ImgUpload.vue'
@@ -158,10 +158,17 @@ const getBannerInfo = (info) => {
   state.dialogVisible = true
 }
 const reomveBanner = (id) => {
-  ElMessageBox.confirm('确定要删除当前banner吗', '警告', {
+  ElMessageBox.confirm('确定要删除当前新闻吗', '警告', {
     confirmButtonText: '确定',
     cancelButtonText: '取消',
     type: 'warning'
+  }).then(async () => {
+    try {
+      await REMOVE_NEWS_API(id)
+      fetchData()
+    } catch (e) {
+      console.log(e)
+    }
   })
 }
 const sevaBanner = async () => {

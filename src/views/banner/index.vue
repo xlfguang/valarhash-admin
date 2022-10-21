@@ -28,7 +28,7 @@
       <el-table-column label="操作" width="150" align="center">
         <template #default="scope">
           <el-button @click="getBannerInfo(scope)">详情</el-button>
-          <el-button type="danger" @click="reomveBanner(scope.id)">删除</el-button>
+          <el-button type="danger" @click="reomveBanner(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -73,7 +73,13 @@
   </el-dialog>
 </template>
 <script setup lang="ts">
-import { ADD_BANNER_API, bannerItem, GET_BANNER_LIST_RUL_API, SEVA_BANNER_INFOL_API } from '@/api/banner'
+import {
+  ADD_BANNER_API,
+  bannerItem,
+  GET_BANNER_LIST_RUL_API,
+  SEVA_BANNER_INFOL_API,
+  REMOVE_BANNER_API
+} from '@/api/banner'
 import { ElMessageBox } from 'element-plus'
 import ImgUpload from '@/components/ImgUpload.vue'
 
@@ -123,6 +129,13 @@ const reomveBanner = (id) => {
     confirmButtonText: '确定',
     cancelButtonText: '取消',
     type: 'warning'
+  }).then(async () => {
+    try {
+      await REMOVE_BANNER_API(id)
+      fetchData()
+    } catch (e) {
+      console.log(e)
+    }
   })
 }
 const sevaBanner = async () => {
@@ -159,10 +172,9 @@ const addBanner = () => {
   }
   state.dialogVisible = true
 }
-const setImg = (url:string)=>{
-  console.log(url);
+const setImg = (url: string) => {
+  console.log(url)
   state.avtiveBannerInfo.url = url
-  
 }
 //导出属性到页面中使用
 const { bannerList, listLoading, dialogVisible, avtiveBannerInfo, setUrl, settitle } = toRefs(state)
