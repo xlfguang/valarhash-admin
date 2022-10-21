@@ -14,8 +14,6 @@ directive(app);
 import './permission';
 import './theme/index.scss';
 import 'uno.css';
-import errorLog from '@/hooks/useErrorLog';
-errorLog();
 import { createPinia } from 'pinia';
 app.use(createPinia());
 app.use(router).mount('#app');
