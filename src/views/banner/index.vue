@@ -95,8 +95,8 @@ const state = reactive<{
   bannerList: [],
   dialogVisible: false,
   avtiveBannerInfo: { id: 0, url: '', title: '' },
-  setUrl: true,
-  settitle: true
+  setUrl: false,
+  settitle: false
 })
 
 onBeforeMount(() => {
@@ -108,7 +108,7 @@ const fetchData = async () => {
   try {
     const res = await GET_BANNER_LIST_RUL_API({
       pageNum: 1,
-      pageSize: 10
+      pageSize: 20
     })
     state.bannerList = res.data.results
     // state.bannerList = res.data
@@ -119,8 +119,8 @@ const fetchData = async () => {
 }
 
 const getBannerInfo = (info) => {
-  state.setUrl = true
-  state.settitle = true
+  // state.setUrl = true
+  // state.settitle = true
   state.avtiveBannerInfo = JSON.parse(JSON.stringify(info.row))
   state.dialogVisible = true
 }

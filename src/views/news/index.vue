@@ -126,9 +126,9 @@ const state = reactive<{
     overview: '',
     figure: ''
   },
-  setUrl: true,
-  settitle: true,
-  setOverview: true
+  setUrl: false,
+  settitle: false,
+  setOverview: false
 })
 
 onBeforeMount(() => {
@@ -151,8 +151,8 @@ const fetchData = async () => {
 }
 
 const getBannerInfo = (info) => {
-  state.setUrl = true
-  state.settitle = true
+  // state.setUrl = true
+  // state.settitle = true
   state.avtivenewsInfo = JSON.parse(JSON.stringify(info.row))
   state.dialogVisible = true
 }
