@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/v-on-event-hyphenation -->
 <template>
   <div class="navbar rowBC reset-el-dropdown">
     <div class="rowSC">

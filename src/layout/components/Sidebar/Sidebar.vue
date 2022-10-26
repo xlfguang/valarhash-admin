@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-template-shadow -->
 <template>
   <div id="Sidebar" class="reset-menu-style">
     <!--logo-->

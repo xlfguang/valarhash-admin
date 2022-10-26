@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/v-on-event-hyphenation -->
 <template>
   <div class="app-container scroll-y">
     <div class="addBanner">
@@ -27,7 +28,9 @@
       </el-table-column>
       <el-table-column label="内容">
         <template #default="scope">
-          {{ scope.row.content }}
+          <div class="omit">
+            {{ scope.row.content }}
+          </div>
         </template>
       </el-table-column>
       <el-table-column label="操作" width="150" align="center">
@@ -61,6 +64,12 @@
           <ImgUpload @setImg="setImg"></ImgUpload>
           <el-button @click="setUrl = !setUrl">网络地址</el-button>
         </div>
+      </div>
+      <div class="bannerInfo">
+        <div class="bannerInfo-title"></div>
+
+        <div class="bannerInfo-content">（只能上传jpg和png格式图片）</div>
+        <div class="bannerInfo-btnbox"></div>
       </div>
       <div class="bannerInfo">
         <span>概念图预览:</span>
@@ -245,5 +254,12 @@ const { newsList, listLoading, dialogVisible, avtivenewsInfo, setUrl, settitle, 
   width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+.omit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; //作为弹性伸缩盒子模型显示。
+  -webkit-box-orient: vertical; //设置伸缩盒子的子元素排列方式--从上到下垂直排列
+  -webkit-line-clamp: 4; //显示的行
 }
 </style>
